@@ -1,0 +1,39 @@
+{
+  "job": {
+    "sqlMode": 3,
+    "setting": {
+      "speed": {
+        "channel": 2
+      },
+      "reportPath": "C:/pro/paipi_db/local_test/temp/report_file.json",
+      "enablePreCheck": true,
+      "enablePostCheck": true
+    },
+    "content": [
+      {
+        "common": {
+          "name": "Postgresql",
+          "parameter": {
+            "connection": {
+              "ip": "192.168.232.100",
+              "port": "5432",
+              "username": "postgres",
+              "password": "admin",
+              "database": "postgres",
+              "schema": "public",
+              "jdbcUrlParam": {}
+            },
+            "table": "tb_4",
+            "column": [
+              "*"
+            ],
+            "querySql": "",
+            "saveUrl": "C:/pro/paipi_db/local_test/temp/test",
+            "where": "col0='香蕉'",
+            "sep": ","
+          }
+        }
+      }
+    ]
+  }
+}

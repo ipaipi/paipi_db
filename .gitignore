@@ -1,0 +1,31 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea/
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+tmp
+local_test/temp/
+/bin/
+*.log
+out/
+log/
+logs/
+static
+idea/

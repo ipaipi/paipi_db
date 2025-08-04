@@ -1,0 +1,58 @@
+{
+  "job": {
+    "sqlMode": 2,
+    "setting": {
+      "speed": {
+        "channel": 2
+      },
+      "reportPath": "C:/pro/paipi_db/local_test/temp/report_file.json",
+      "enablePreCheck": true,
+      "enablePostCheck": true
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "HBase",
+          "parameter": {
+            "hbaseConfig": {
+              "hbase.zookeeper.quorum": "192.168.232.101,192.168.232.102,192.168.232.103",
+              "hbase.zookeeper.property.clientPort": "2181",
+              "zookeeper.znode.parent": "/hbase"
+            },
+            "table": "test_ns:test_table",
+            "rowkey": "id",
+            "column": [
+              {
+                "name": "cf1:id",
+                "type": "string"
+              },
+              {
+                "name": "cf1:name",
+                "type": "string"
+              },
+              {
+                "name": "cf1:age",
+                "type": "int"
+              },
+              {
+                "name": "cf1:email",
+                "type": "string"
+              },
+              {
+                "name": "cf1:create_time",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "writer": {
+          "name": "TxtFile",
+          "parameter": {
+            "filePath": "C:/pro/paipi_db/local_test/temp/test/test1.csv",
+            "sep": "\\t"
+          }
+        }
+      }
+    ]
+  }
+}

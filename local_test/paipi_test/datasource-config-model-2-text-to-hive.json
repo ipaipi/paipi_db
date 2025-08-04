@@ -1,0 +1,68 @@
+{
+  "job": {
+    "sqlMode": 2,
+    "setting": {
+      "speed": {
+        "channel": 2
+      },
+      "reportPath": "C:/pro/paipi_db/local_test/temp/report_file.json",
+      "enablePreCheck": true,
+      "enablePostCheck": true,
+      "channel": {
+        "class": "buffered",
+        "memoryCapacity": 10000,
+        "path": "C:/pro/paipi_db/local_test/temp/channel_file"
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "TxtFile",
+          "parameter": {
+            "filePath": "C:\\pro\\paipi_db\\local_test\\temp\\test_orc_table_split_1752732073337.csv",
+            "sep": ",",
+            "column": [
+              {
+                "name": "id",
+                "type": "LONG"
+              },
+              {
+                "name": "name",
+                "type": "STRING"
+              },
+              {
+                "name": "score",
+                "type": "DOUBLE"
+              },
+              {
+                "name": "flag",
+                "type": "BOOL"
+              },
+              {
+                "name": "created_at",
+                "type": "DATE"
+              }
+            ]
+          }
+        },
+        "writer": {
+          "name": "TxtFile",
+          "parameter": {
+            "filePath": "C:\\pro\\paipi_db\\local_test\\temp\\test_orc_table_split_1752732073337xxxxxxxxxxxxxxxxxxxx.csv",
+            "sep": ","
+          }
+        },
+        "transformer": [
+          {
+            "name": "zeroonetoboolean",
+            "parameter": {
+              "columnIndex": [
+                3
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

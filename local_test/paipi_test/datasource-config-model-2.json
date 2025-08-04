@@ -1,0 +1,138 @@
+{
+  "job": {
+    "sqlMode": 2,
+    "setting": {
+      "speed": {
+        "channel": 10
+      },
+      "reportPath": "C:/pro/paipi_db/local_test/temp/report_file.json",
+      "enablePreCheck": true,
+      "enablePostCheck": true,
+      "channel": {
+        "class": "buffered",
+        "memoryCapacity": 10000,
+        "path": "C:/pro/paipi_db/local_test/temp/channel_file"
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "Mysql",
+          "parameter": {
+            "connection": {
+              "ip": "192.168.232.100",
+              "port": "3306",
+              "username": "root",
+              "password": "admin",
+              "database": "demo",
+              "jdbcUrlParam": {}
+            },
+            "table": "paipi_db_test1",
+            "column": [
+              "id",
+              "user_name",
+              "age",
+              "salary",
+              "is_active",
+              "registration_date",
+              "last_login",
+              "profile_text",
+              "binary_data",
+              "json_data",
+              "ip_address"
+            ],
+            "querySql": "",
+            "preSql": [
+              "truncate table result_table_8"
+            ],
+            "postSql": [
+              "truncate table result_table_8"
+            ],
+            "saveUrl": "C:/pro/paipi_db/local_test/temp/test",
+            "where": ""
+          }
+        },
+        "writer": {
+          "name": "TxtFile",
+          "parameter": {
+            "filePath": "C:/pro/paipi_db/local_test/temp/test/test1.csv",
+            "sep": "\\t"
+          }
+        },
+        "writer2": {
+          "name": "Mysql",
+          "parameter": {
+            "connection": {
+              "ip": "192.168.232.100",
+              "port": "3306",
+              "username": "root",
+              "password": "admin",
+              "database": "demo",
+              "jdbcUrlParam": {}
+            },
+            "writeMode": "insert",
+            "column": [
+              "id",
+              "user_name",
+              "age",
+              "salary",
+              "is_active",
+              "registration_date",
+              "last_login",
+              "profile_text",
+              "binary_data",
+              "json_data",
+              "ip_address"
+            ],
+            "session": [
+            ],
+            "preSql": [
+              "delete from test"
+            ],
+            "table": "paipi_db_test1"
+          }
+        },
+        "writer1": {
+          "name": "Hive",
+          "parameter": {
+            "connection": {
+              "ip": "192.168.232.101",
+              "port": "10000",
+              "username": "root",
+              "password": "admin",
+              "database": "demo",
+              "hdfsIP": "192.168.232.101",
+              "hdfsPort": "8020",
+              "hdfsUser": "hdfs",
+              "hdfsTempPath": "/user/hive/paipi_db/",
+              "authMechanism": "KERBEROS",
+              "kerberosServiceName": {
+                "principal": "hive/cdh01@PAIPI.VIP",
+                "keytabConf": "C:/pro/paipi_db/local_test/krb5.conf",
+                "keytabUsername": "hive@PAIPI.VIP",
+                "keytabFile": "C:/pro/paipi_db/local_test/hive.keytab",
+                "hdfsKeytabUsername": "hdfs@PAIPI.VIP",
+                "hdfsKeytabFile": "C:/pro/paipi_db/local_test/hdfs.keytab"
+              },
+              "jdbcUrlParam": {}
+            },
+            "column": [
+              "id",
+              "user_name",
+              "age",
+              "salary",
+              "is_active",
+              "registration_date",
+              "last_login",
+              "profile_text",
+              "binary_data",
+              "json_data",
+              "ip_address"
+            ],
+            "table": "paipi_db_test"
+          }
+        }
+      }
+    ]
+  }
+}

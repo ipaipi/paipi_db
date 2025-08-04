@@ -1,0 +1,41 @@
+{
+  "job": {
+    "sqlMode": 2,
+    "setting": {
+      "speed": {
+        "channel": 1
+      },
+      "reportPath": "local_test/temp/report_file.json",
+      "enablePreCheck": true,
+      "enablePostCheck": true
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "HBase",
+          "parameter": {
+            "connection": {
+              "quorum": "192.168.232.100:2181",
+              "znodeParent": "/hbase"
+            },
+            "table": "test_table_hbase",
+            "column": [
+              "cf:id",
+              "cf:name",
+              "cf:age",
+              "cf:email",
+              "cf:create_time"
+            ]
+          }
+        },
+        "writer": {
+          "name": "TxtFile",
+          "parameter": {
+            "filePath": "local_test/temp/test_table_hbase.csv",
+            "sep": ","
+          }
+        }
+      }
+    ]
+  }
+} 

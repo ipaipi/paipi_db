@@ -1,0 +1,54 @@
+{
+  "job": {
+    "sqlMode": 1,
+    "setting": {
+      "speed": {
+        "channel": 1
+      },
+      "reportPath": "C:/pro/paipi_db/local_test/temp/report_file.json",
+      "enablePreCheck": true,
+      "enablePostCheck": true
+    },
+    "content": [
+      {
+        "common": {
+          "name": "Hive",
+          "parameter": {
+            "connection": {
+              "ip": "192.168.232.101",
+              "port": "10000",
+              "username": "root",
+              "password": "admin",
+              "database": "default",
+              "hdfsIP": "192.168.232.101",
+              "hdfsPort": "8020",
+              "hdfsUser": "hdfs",
+              "hdfsTempPath": "/user/hive/paipi_db/",
+              "authMechanism": "KERBEROS",
+              "kerberosServiceName": {
+                "principal": "hive/cdh01@PAIPI.VIP",
+                "keytabConf": "C:/pro/paipi_db/local_test/krb5.conf",
+                "keytabUsername": "hive@PAIPI.VIP",
+                "keytabFile": "C:/pro/paipi_db/local_test/hive.keytab",
+                "hdfsKeytabUsername": "hdfs@PAIPI.VIP",
+                "hdfsKeytabFile": "C:/pro/paipi_db/local_test/hdfs.keytab"
+              },
+              "jdbcUrlParam": {}
+            },
+            "table": "demo",
+            "column": [
+              "t_id",
+              "demo",
+              "t_name",
+              "partition_col1",
+              "partition_col2"
+            ],
+            "filePath": "C:/pro/paipi_db/local_test/temp/test/0.csv",
+            "sep": ",",
+            "skipHeader": true
+          }
+        }
+      }
+    ]
+  }
+}

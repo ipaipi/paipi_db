@@ -1,0 +1,44 @@
+{
+  "job": {
+    "sqlMode": 2,
+    "setting": {
+      "speed": {
+        "channel": 1
+      },
+      "reportPath": "local_test/temp/report_file.json",
+      "enablePreCheck": true,
+      "enablePostCheck": true
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "Postgresql",
+          "parameter": {
+            "connection": {
+              "ip": "192.168.232.100",
+              "port": "5432",
+              "username": "postgres",
+              "password": "admin",
+              "database": "demo"
+            },
+            "table": "test_table_pg",
+            "column": [
+              "id",
+              "name",
+              "age",
+              "email",
+              "create_time"
+            ]
+          }
+        },
+        "writer": {
+          "name": "TxtFile",
+          "parameter": {
+            "filePath": "local_test/temp/test_table_pg.csv",
+            "sep": ","
+          }
+        }
+      }
+    ]
+  }
+}

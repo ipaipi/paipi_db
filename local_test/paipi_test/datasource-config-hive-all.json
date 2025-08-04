@@ -1,0 +1,81 @@
+{
+  "job": {
+    "sqlMode": 2,
+    "setting": {
+      "speed": {
+        "channel": 1
+      },
+      "reportPath": "C:/pro/paipi_db/local_test/temp/report_file.json",
+      "enablePreCheck": true,
+      "enablePostCheck": true
+    },
+    "content": [
+      {
+        "common": {
+          "name": "Hive",
+          "parameter": {
+            "connection": {
+              "ip": "192.168.232.100",
+              "port": "10000",
+              "username": "root",
+              "password": "admin",
+              "database": "default",
+              "hdfsIP": "192.168.232.100",
+              "hdfsPort": "8020",
+              "hdfsUser": "hdfs",
+              "hdfsTempPath": "/user/hive/paipi_db/",
+              "authMechanism": "NOSASL",
+              "jdbcUrlParam": {}
+            },
+            "table": "student_info",
+            "column": [
+              "*"
+            ],
+            "querySql": "",
+            "saveUrl": "C:/pro/paipi_db/local_test/temp/test",
+            "where": "",
+            "sep": ","
+          }
+        },
+        "reader": {
+          "name": "Hive",
+          "parameter": {
+            "connection": {
+              "ip": "192.168.232.100",
+              "port": "10000",
+              "username": "root",
+              "password": "admin",
+              "database": "demo",
+              "hdfsIP": "192.168.232.100",
+              "hdfsPort": "8020",
+              "hdfsUser": "hdfs",
+              "hdfsTempPath": "/user/hive/paipi_db/",
+              "authMechanism": "NOSASL",
+              "jdbcUrlParam": {}
+            },
+            "table": "demo",
+            "column": [
+              "id",
+              "name"
+            ],
+            "querySql": "",
+            "saveUrl": "C:/pro/paipi_db/local_test/temp/test",
+            "where": "",
+            "sep": ","
+          }
+        },
+        "writer": {
+          "name": "TxtFile",
+          "parameter": {
+            "column": [
+              "id",
+              "name"
+            ],
+            "filePath": "C:/pro/paipi_db/local_test/temp/test/test1.csv",
+            "sep": ","
+          }
+        }
+      }
+    ]
+  }
+}

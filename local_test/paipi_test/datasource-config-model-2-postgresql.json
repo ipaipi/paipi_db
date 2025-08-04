@@ -1,0 +1,62 @@
+{
+  "job": {
+    "sqlMode": 2,
+    "setting": {
+      "speed": {
+        "channel": 1
+      },
+      "reportPath": "C:/pro/paipi_db/local_test/temp/report_file.json",
+      "enablePreCheck": true,
+      "enablePostCheck": true,
+      "channel": {
+        "class": "memory",
+        "memoryCapacity": 1000,
+        "path": "./channel_file"
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "Postgresql",
+          "parameter": {
+            "connection": {
+              "ip": "192.168.232.100",
+              "port": "5432",
+              "username": "postgres",
+              "password": "admin",
+              "database": "postgres",
+              "schema": "public",
+              "jdbcUrlParam": {}
+            },
+            "table": "employees",
+            "column": [
+              "*"
+            ],
+            "where": ""
+          }
+        },
+        "writer": {
+          "name": "Mysql",
+          "parameter": {
+            "connection": {
+              "ip": "192.168.232.100",
+              "port": "3306",
+              "username": "root",
+              "password": "admin",
+              "database": "demo",
+              "jdbcUrlParam": {}
+            },
+            "table": "employees",
+            "column": [
+              "id",
+              "name",
+              "age",
+              "department"
+            ],
+            "writeMode": "update"
+          }
+        }
+      }
+    ]
+  }
+}

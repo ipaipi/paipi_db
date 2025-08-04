@@ -1,0 +1,84 @@
+{
+  "job": {
+    "sqlMode": 2,
+    "setting": {
+      "speed": {
+        "channel": 4
+      },
+      "reportPath": "./temp/report_file.json",
+      "enablePreCheck": true,
+      "enablePostCheck": true,
+      "channel": {
+        "class": "buffered",
+        "memoryCapacity": 10000,
+        "path": "./temp/channel_file"
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "Hive",
+          "parameter": {
+            "connection": {
+              "ip": "192.168.1.232",
+              "port": "10000",
+              "username": "root",
+              "password": "admin",
+              "database": "test",
+              "hdfsIP": "192.168.1.232",
+              "hdfsPort": "8020",
+              "hdfsUser": "hdfs",
+              "hdfsTempPath": "/user/hive/paipi_db/",
+              "authMechanism": "PLAIN",
+              "kerberosServiceName": {
+                "principal": "hive/cdh01@PAIPI.VIP",
+                "keytabConf": "./krb5.conf",
+                "keytabUsername": "hive@PAIPI.VIP",
+                "keytabFile": "./hive.keytab",
+                "hdfsKeytabUsername": "hdfs@PAIPI.VIP",
+                "hdfsKeytabFile": "./hdfs.keytab"
+              },
+              "jdbcUrlParam": {}
+            },
+            "table": "thj_1wl_200col",
+            "column": [
+              "*"
+            ],
+            "where": "",
+            "preSql": "truncate table demo_thj_test",
+            "postSql": "truncate table demo_thj_test",
+            "splitPk": "col2"
+          }
+        },
+        "writer": {
+          "name": "TxtFile",
+          "parameter": {
+            "filePath": "./txt_test/",
+            "sep": ","
+          }
+        },
+        "transformer": [
+          {
+            "name": "trim",
+            "parameter": {
+              "columnIndex": [
+                1,
+                4
+              ]
+            }
+          },
+          {
+            "name": "replace",
+            "parameter": {
+              "columnIndex": [
+                0
+              ],
+              "oldValue": "苹果",
+              "newValue": "替换"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

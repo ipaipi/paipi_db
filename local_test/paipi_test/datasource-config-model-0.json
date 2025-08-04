@@ -1,0 +1,58 @@
+{
+  "job": {
+    "sqlMode": 0,
+    "setting": {
+      "speed": {
+        "channel": 1
+      },
+      "reportPath": "C:/pro/paipi_db/local_test/temp/report_file.json",
+      "enablePreCheck": true,
+      "enablePostCheck": true
+    },
+    "content": [
+      {
+        "common": {
+          "name": "Mysql",
+          "parameter": {
+            "connection": {
+              "ip": "192.168.232.100",
+              "port": "3306",
+              "username": "root",
+              "password": "admin",
+              "database": "demo",
+              "jdbcUrlParam": {}
+            },
+            "table": "test_orc_table",
+            "column": [
+              {
+                "name": "id",
+                "type": "LONG"
+              },
+              {
+                "name": "name",
+                "type": "STRING"
+              },
+              {
+                "name": "score",
+                "type": "DOUBLE"
+              },
+              {
+                "name": "flag",
+                "type": "BOOL"
+              },
+              {
+                "name": "created_at",
+                "type": "DATE"
+              }
+            ],
+            "saveUrl": "C:/pro/paipi_db/local_test/temp/test",
+            "sep": ",",
+            "fileType": "json",
+            "isChunk": true,
+            "chunkSize": 2000000
+          }
+        }
+      }
+    ]
+  }
+}

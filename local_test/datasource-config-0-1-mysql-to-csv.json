@@ -1,0 +1,42 @@
+{
+  "job": {
+    "sqlMode": 0,
+    "setting": {
+      "speed": {
+        "channel": 1
+      },
+      "reportPath": "local_test/temp/report_file.json",
+      "enablePreCheck": true,
+      "enablePostCheck": true
+    },
+    "content": [
+      {
+        "common": {
+          "name": "Mysql",
+          "parameter": {
+            "connection": {
+              "ip": "192.168.232.100",
+              "port": "3306",
+              "username": "root",
+              "password": "admin",
+              "database": "demo"
+            },
+            "table": "test_table",
+            "column": [
+              "id",
+              "name",
+              "age",
+              "email",
+              "create_time"
+            ],
+            "saveUrl": "local_test/temp/",
+            "sep": ",",
+            "fileType": "csv",
+            "isChunk": false,
+            "chunkSize": 2000000
+          }
+        }
+      }
+    ]
+  }
+} 

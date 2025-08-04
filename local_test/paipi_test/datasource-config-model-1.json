@@ -1,0 +1,35 @@
+{
+  "job": {
+    "sqlMode": 1,
+    "setting": {
+      "speed": {
+        "channel": 2
+      },
+      "reportPath": "C:/pro/paipi_db/local_test/temp/report_file.json",
+      "enablePreCheck": true,
+      "enablePostCheck": true
+    },
+    "content": [
+      {
+        "common": {
+          "name": "Mysql",
+          "parameter": {
+            "connection": {
+              "ip": "192.168.232.100",
+              "port": "3306",
+              "username": "root",
+              "password": "admin",
+              "database": "demo",
+              "jdbcUrlParam": {}
+            },
+            "sqlFile": "C:/pro/paipi_db/local_test/test_etl1.sql",
+            "saveUrl": "C:/pro/paipi_db/local_test/temp/",
+            "fileType": "csv",
+            "isChunk": true,
+            "chunkSize": 2
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "job": {
+    "sqlMode": 2,
+    "setting": {
+      "speed": {
+        "channel": 1
+      },
+      "reportPath": "local_test/temp/report_file.json",
+      "enablePreCheck": true,
+      "enablePostCheck": true
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "Mysql",
+          "parameter": {
+            "connection": {
+              "ip": "192.168.232.100",
+              "port": "3306",
+              "username": "root",
+              "password": "admin",
+              "database": "demo"
+            },
+            "table": "test_table_multiwriter",
+            "column": [
+              "id",
+              "name",
+              "age",
+              "email",
+              "create_time"
+            ]
+          }
+        },
+        "writer": {
+          "name": "TxtFile",
+          "parameter": {
+            "filePath": "local_test/temp/test_table_multiwriter.csv",
+            "sep": ","
+          }
+        },
+        "transformer": [
+          {
+            "name": "trim",
+            "parameter": {
+              "columnIndex": [
+                1
+              ]
+            }
+          },
+          {
+            "name": "replace",
+            "parameter": {
+              "columnIndex": [
+                1
+              ],
+              "oldValue": "张三",
+              "newValue": "三哥"
+            }
+          },
+          {
+            "name": "filter",
+            "parameter": {
+              "columnIndex": [
+                2
+              ],
+              "value": "20",
+              "op": ">"
+            }
+          }
+        ]
+      }
+    ]
+  }
+} 

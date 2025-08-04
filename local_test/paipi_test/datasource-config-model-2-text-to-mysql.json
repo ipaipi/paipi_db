@@ -1,0 +1,98 @@
+{
+  "job": {
+    "sqlMode": 2,
+    "setting": {
+      "speed": {
+        "channel": 2
+      },
+      "reportPath": "C:/pro/paipi_db/local_test/temp/report_file.json",
+      "enablePreCheck": true,
+      "enablePostCheck": true,
+      "channel": {
+        "class": "buffered",
+        "memoryCapacity": 10000,
+        "path": "C:/pro/paipi_db/local_test/temp/channel_file"
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "TxtFile",
+          "parameter": {
+            "filePath": "C:/pro/paipi_db/local_test/expected/cred_example_v6_2025.csv",
+            "sep": ",",
+            "skipHeader": true
+          }
+        },
+        "writer": {
+          "name": "Mysql",
+          "parameter": {
+            "connection": {
+              "ip": "192.168.232.100",
+              "port": "3306",
+              "username": "root",
+              "password": "admin",
+              "database": "demo"
+            },
+            "table": "customer_data1",
+            "autoCreateTable": true,
+            "writeMode": "update",
+            "column": [
+              "w_id",
+              "industry_bin",
+              "default_90",
+              "default_100",
+              "default_issue_100",
+              "hh_income",
+              "rent_own",
+              "age",
+              "card_level",
+              "acqu_channel",
+              "housing_typ",
+              "score_aaplic",
+              "home_value",
+              "n_inquiries_30",
+              "n_inquiries_60",
+              "n_inquiries_90",
+              "new_lines_3mon",
+              "car_model_year",
+              "yrsres",
+              "male",
+              "marital_status",
+              "fraud_activity",
+              "citizen",
+              "employed_current_yrs",
+              "override",
+              "newcust",
+              "indus_occup",
+              "rejected_count",
+              "card_beauty_spend",
+              "cash_advance_n",
+              "card_auto_spend",
+              "cash_advance_avg_n",
+              "dining_spend_pct",
+              "retail_spend_pct",
+              "grocery_spend_pct",
+              "e_commerce_spend_pct",
+              "electronics_spend_pct",
+              "clothing_spend_pct",
+              "card_auto_pct",
+              "education_spend_pct",
+              "card_beauty_pct",
+              "line_start",
+              "max_cash_advance_24mon",
+              "max_balance_24mon",
+              "over_limit_n",
+              "employment_risky",
+              "cash_advance_pct_trans",
+              "installment_loan_pct",
+              "issue_time",
+              "t_date",
+              "predict_y"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
