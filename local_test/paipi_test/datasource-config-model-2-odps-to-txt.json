@@ -17,15 +17,13 @@
     "content": [
       {
         "reader": {
-          "name": "Mysql",
+          "name": "Odps",
           "parameter": {
-            "connection": {
-              "ip": "192.168.232.100",
-              "port": "3306",
-              "username": "root",
-              "password": "admin",
-              "database": "demo"
-            },
+            "accessId": "yourAccessId",
+            "accessKey": "yourAccessKey",
+            "project": "targetProjectName",
+            "odpsServer": "http://xxx/api",
+            "tunnelServer": "http://dt.odps.aliyun.com",
             "table": "customer_data1",
             "column": [
               "w_id",

@@ -61,6 +61,7 @@ public class OdpsAdapter extends BaseAdapter {
         if (paramSb.length() > 0) {
             url.append('?').append(paramSb);
         }
+        logger.info("jdbc url: {}", url);
         return url.toString();
     }
 
