@@ -16,6 +16,7 @@ import java.util.List;
 
 import static org.apache.commons.lang.StringUtils.isNotBlank;
 
+// todo 未进行测试
 public class OdpsAdapter extends BaseAdapter {
 
     public OdpsAdapter(Configuration originalConfig, Configuration config) {
@@ -252,5 +253,3 @@ public class OdpsAdapter extends BaseAdapter {
         }
     }
 }
-
-
