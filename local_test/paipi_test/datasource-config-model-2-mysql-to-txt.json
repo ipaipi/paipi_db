@@ -17,22 +17,14 @@
     "content": [
       {
         "reader": {
-          "name": "TxtFile",
-          "parameter": {
-            "filePath": "C:/pro/paipi_db/local_test/expected/cred_example_v6_2025.csv",
-            "sep": ",",
-            "skipHeader": true
-          }
-        },
-        "writer": {
-          "name": "YashanDB",
+          "name": "Mysql",
           "parameter": {
             "connection": {
               "ip": "192.168.232.100",
-              "port": "2688",
+              "port": "3306",
               "username": "root",
-              "password": "passwd123A.",
-              "database": "MAIN"
+              "password": "admin",
+              "database": "demo"
             },
             "table": "customer_data1",
             "autoCreateTable": true,
@@ -91,7 +83,35 @@
               "predict_y"
             ]
           }
-        }
+        },
+        "writer": {
+          "name": "TxtFile",
+          "parameter": {
+            "filePath": "local_test/temp/test_table.txt",
+            "sep": ","
+          }
+        },
+        "transformer": [
+          {
+            "name": "trim",
+            "parameter": {
+              "columnIndex": [
+                1,
+                4
+              ]
+            }
+          },
+          {
+            "name": "replace",
+            "parameter": {
+              "columnIndex": [
+                1
+              ],
+              "oldValue": "Alice",
+              "newValue": "替换"
+            }
+          }
+        ]
       }
     ]
   }

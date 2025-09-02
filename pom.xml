@@ -88,6 +88,12 @@
                     </exclusions>
                 </dependency>
                 <dependency>
+                    <groupId>com.aliyun.odps</groupId>
+                    <artifactId>odps-jdbc</artifactId>
+                    <version>3.2.8</version>
+                    <classifier>jar-with-dependencies</classifier>
+                </dependency>
+                <dependency>
                     <groupId>com.alibaba</groupId>
                     <artifactId>fastjson</artifactId>
                     <version>${fastjson.version}</version>
@@ -216,11 +222,6 @@
                             <artifactId>logback-classic</artifactId>
                         </exclusion>
                     </exclusions>
-                </dependency>
-                <dependency>
-                    <groupId>com.yashandb</groupId>
-                    <artifactId>yashandb-jdbc</artifactId>
-                    <version>1.7.10</version><!-- 添加崖山驱动 -->
                 </dependency>
                 <dependency>
                     <groupId>org.fusesource.jansi</groupId>

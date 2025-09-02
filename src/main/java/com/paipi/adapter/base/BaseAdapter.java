@@ -24,8 +24,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.Date;
 import java.sql.*;
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -738,6 +738,29 @@ public abstract class BaseAdapter implements Serializable {
 
     // 内部类型转成数据库类型
     public abstract List<Object> internalTypeToDbType(ColumnStruct column);
+
+    public String assembleJdbcUrlParam() {
+        Map<String, String> param = new LinkedHashMap<>();
+        // 常用参数占位，均可被外部 jdbcUrlParam 覆盖
+        param.put("useUnicode", "true");
+        param.put("characterEncoding", "utf8");
+
+        Map<String, Object> jdbcUrlParam = config.getMap(ParameterConstant.CONNECTION_JDBC_URL_PARAM);
+        if (jdbcUrlParam != null && !jdbcUrlParam.isEmpty()) {
+            for (Map.Entry<String, Object> entry : jdbcUrlParam.entrySet()) {
+                if (entry.getKey() != null && entry.getValue() != null) {
+                    param.put(entry.getKey(), String.valueOf(entry.getValue()));
+                }
+            }
+        }
+        StringBuilder urlParam = new StringBuilder();
+        for (Map.Entry<String, String> entry : param.entrySet()) {
+            if (StringUtils.isBlank(entry.getKey()) || StringUtils.isBlank(entry.getValue())) continue;
+            urlParam.append(entry.getKey()).append("=").append(entry.getValue()).append(";");
+        }
+        if (urlParam.length() > 0) urlParam.deleteCharAt(urlParam.length() - 1);
+        return urlParam.toString();
+    }
 
     /**
      * 通用的PreparedStatement参数设置方法，支持类型适配、长度截断、异常增强。

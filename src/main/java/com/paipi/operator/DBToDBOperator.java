@@ -110,7 +110,6 @@ public class DBToDBOperator extends BaseOperator {
 
     @Override
     public void pre() throws Exception {
-        // todo 对象评估 语法评估
         String readerDbType = originalConfig.getString(CoreConstant.DB_JOB_CONTENT_READER_NAME);
         String writerDbType = originalConfig.getString(CoreConstant.DB_JOB_CONTENT_WRITER_NAME);
         readerAdapter = buildDbAdapter(readerDbType, originalConfig, readerConfig);
@@ -218,7 +217,6 @@ public class DBToDBOperator extends BaseOperator {
 
     @Override
     public void post() throws Exception {
-        // todo 统计校验 、抽样校验、精确校验
         // 执行postSql
         if (!readerConfig.getString(ParameterConstant.POST_SQL, "").isEmpty()) {
             readerAdapter.executeSQL(readerConfig.getString(ParameterConstant.POST_SQL));

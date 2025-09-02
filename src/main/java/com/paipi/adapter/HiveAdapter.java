@@ -117,6 +117,7 @@ public class HiveAdapter extends BaseAdapter {
         return "hive2://" + url;
     }
 
+    @Override
     public String assembleJdbcUrlParam() {
         // 拼接 JDBC URL 参数
         Map<String, String> param = new HashMap<>();

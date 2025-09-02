@@ -99,6 +99,7 @@ public class MysqlAdapter extends BaseAdapter {
                 + "?" + assembleJdbcUrlParam();
     }
 
+    @Override
     public String assembleJdbcUrlParam() {
         Map<String, String> param = new HashMap<>();
         param.put("rewriteBatchedStatements", "true");
@@ -107,7 +108,7 @@ public class MysqlAdapter extends BaseAdapter {
         param.put("useCursorFetch", "true");
         param.put("serverTimezone", "GMT%2B8");
 
-        Map<String, Object> jdbcUrlParam = config.getMap(ParameterConstant.CONNECTION_JDBC_URL_PARAM, new HashMap<String, Object>());
+        Map<String, Object> jdbcUrlParam = config.getMap(ParameterConstant.CONNECTION_JDBC_URL_PARAM, new HashMap<>());
         if (jdbcUrlParam != null && !jdbcUrlParam.isEmpty()) {
             for (Map.Entry<String, Object> entry : jdbcUrlParam.entrySet()) {
                 if (entry.getKey() != null && entry.getValue() != null) {
