@@ -132,6 +132,7 @@ public class OdpsAdapter extends BaseAdapter {
 
     @Override
     public void writerPlugin(Channel<Record> channel) throws Exception {
+        // todo 兼容使用Tunnel进行高性能数据写入
         try {
             String tableName = config.getString(ParameterConstant.TABLE, this.table);
             List<String> colNames = ColumnParser.parseColumns(config.getList(ParameterConstant.COLUMN)).getColumnNamesList();
